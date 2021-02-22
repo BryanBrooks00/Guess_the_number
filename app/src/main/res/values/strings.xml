@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Guess the number</string>
+    <string name="start">Start</string>
+    <string name="back">Back</string>
+    <string name="choice">Choose level:</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Normal</string>
+    <string name="hard">Hard</string>
+    <string name="input">Number</string>
+    <string name="quest1">Enter the number from 0 to 100:</string>
+    <string name="quest2">Enter the number from 0 to 1000:</string>
+    <string name="quest3">Enter the number from 0 to 1 million:</string>
+    <string name="send">Send</string>
+    <string name="trying">Attempt: 0 </string>
+    <string name="attempt">Attempt: </string>
+    <string name="win">Попыток: </string>
+    <string name="low">Попыток: </string>
+    <string name="high">Попыток: </string>
+</resources>

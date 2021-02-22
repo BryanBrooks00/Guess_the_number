@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Угадайка</string>
+    <string name="start">Начать</string>
+    <string name="back">Назад</string>
+    <string name="choice">Выберите уровень:</string>
+    <string name="easy">Лёгкий</string>
+    <string name="medium">Средний</string>
+    <string name="hard">Тяжелый</string>
+    <string name="input">Число</string>
+    <string name="quest1">Введите число от 0 до 100:</string>
+    <string name="quest2">Введите число от 0 до 1000:</string>
+    <string name="quest3">Введите число от 0 до 1 миллиона:</string>
+    <string name="send">Отправить</string>
+    <string name="trying">Попыток: 0 </string>
+    <string name="attempt">Попыток: </string>
+    <string name="win">Вы победили!</string>
+    <string name="low">Мало. Попробуйте ещё.</string>
+    <string name="high">Много. Попробуйте ещё.</string>
+</resources>
