@@ -30,6 +30,7 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                     Log.i(TAG, "button_back clicked");
                     Intent intent = new Intent(GameLevels.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -46,6 +47,7 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                     Log.i(TAG, "easy level TextView clicked ");
                    level = "101";
                 } catch (Exception e) {
                     Log.i(TAG, "easy lvl TextView exeption");
@@ -60,6 +62,7 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                     Log.i(TAG, "medium level TextView clicked ");
                     level = "1001";
                 } catch (Exception e) {
                      Log.i(TAG, "medium lvl TextView exeption");
@@ -74,6 +77,7 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                     Log.i(TAG, "hard level TextView clicked ");
                      level = "100001";
                 } catch (Exception e) {
                      Log.i(TAG, "hard lvl TextView exception");
