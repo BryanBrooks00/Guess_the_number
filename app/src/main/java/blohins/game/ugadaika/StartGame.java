@@ -20,7 +20,7 @@ import com.google.android.gms.ads.MobileAds;
 import java.util.Random;
 final static String TAG = "LOG"
 
-public class Level extends AppCompatActivity {
+public class StartGame extends AppCompatActivity {
     private AdView adView;
     int counter = 0;
     
@@ -60,7 +60,7 @@ public class Level extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                      Log.i(TAG, "btn_back clicked");
-                    Intent intent = new Intent(Level1.this, GameLevels.class);
+                    Intent intent = new Intent(StartGame.this, GameLevels.class);
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
@@ -130,7 +130,7 @@ public class Level extends AppCompatActivity {
 
         try {
              Log.i(TAG, "system button back clicked");
-            Intent intent = new Intent(Level1.this, GameLevels.class);
+            Intent intent = new Intent(StartGame.this, GameLevels.class);
             startActivity(intent);
         } catch (Exception e) {
             Log.i(TAG, "onBackPressed exception");
