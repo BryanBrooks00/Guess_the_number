@@ -20,7 +20,7 @@ import com.google.android.gms.ads.MobileAds;
 import java.util.Random;
 final static String TAG = "LOG"
 
-public class Level1 extends AppCompatActivity {
+public class Level extends AppCompatActivity {
     private AdView adView;
     int counter = 0;
     
