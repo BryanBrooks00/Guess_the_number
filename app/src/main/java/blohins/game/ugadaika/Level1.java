@@ -38,19 +38,28 @@ public class Level1 extends AppCompatActivity {
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
-
-        final EditText input_et = (EditText) findViewById(R.id.input_et);
-        final TextView result_tv = (TextView)findViewById(R.id.result_tv);
-        final TextView attempt_tv = (TextView) findViewById(R.id.attempt_tv);
-        final Button btn_send = (Button)findViewById(R.id.btn_send);
         
+        //get extras
+        int level;
+        String extras = intent.getExtras().get("level").toString();
+        if (extras != null && !extras.equals("")){
+            int level = Integer.parseInt(extras);
+            Log.i(TAG, "extras is " + extras);
+        } else {
+            level = 101;
+            Log.i(TAG, "EROR: extras is empty");
+        }
+        getResult(level);
+        // end
+            
+            
      //btn_back begin
         Button btn_back = (Button) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
+                     Log.i(TAG, "btn_back clicked");
                     Intent intent = new Intent(Level1.this, GameLevels.class);
                     startActivity(intent);
                     finish();
@@ -63,20 +72,30 @@ public class Level1 extends AppCompatActivity {
         
     }
     
-    public void getResult(){
-       Random random = new Random();
-        final int number = random.nextInt(101);
+    public static void getResult(int level){
+         Log.i(TAG, "getResult started");
         
+        final TextView attempt_tv = (TextView) findViewById(R.id.attempt_tv);
+        final Button btn_send = (Button)findViewById(R.id.btn_send);
+        
+         String s = "";
+       Random random = new Random();
+        final int number = random.nextInt(level);
+        
+        //btn_send begin
        btn_send.setOnClickListener(new View.OnClickListener() {
            @SuppressLint("SetTextI18n")
            @Override
            public void onClick(View v) {
+                Log.i(TAG, "btn_send clicked");
                try {
                    counter ++ ;
                    String s = "";
                    attempt_tv.setText(getResources().getString(R.string.attempt)+ " " + counter );
+                    Log.i(TAG, "attempt is " + counter);
                    Long num = Long.valueOf(number);
                    Long user_num = Long.valueOf(input.getText().toString()); 
+                    Log.i(TAG, "user_num = " + user_num + ", num = " + num);
                    if (user_num == num) {
                        s= getResources().getString(R.string.win);
                    } else if (user_num < num) {
@@ -84,7 +103,7 @@ public class Level1 extends AppCompatActivity {
                    } else if (user_num > num) {
                        s = getResources().getString(R.string.high);
 
-                   }
+                   }  setResult(s);
                } catch (Exception e) {
                    Log.i(TAG, "getResult exception");
                }
@@ -92,17 +111,25 @@ public class Level1 extends AppCompatActivity {
        });
     }
     
-    public void setResult(String s){
+    public static void setResult(String s){
+         Log.i(TAG, "setResult started");
+         Log.i(TAG, "result is " + s );
+        
+         final EditText input_et = (EditText) findViewById(R.id.input_et);
+        final TextView result_tv = (TextView)findViewById(R.id.result_tv);
+        
         result_tv.setText(s);
-        input.setText("");
+        input_tv.setText("");
     }
 
+    
     //System button Back START
     @Override
     public void onBackPressed () {
         super.onBackPressed();
 
         try {
+             Log.i(TAG, "system button back clicked");
             Intent intent = new Intent(Level1.this, GameLevels.class);
             startActivity(intent);
         } catch (Exception e) {
