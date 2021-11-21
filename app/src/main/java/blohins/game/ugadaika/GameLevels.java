@@ -8,10 +8,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GameLevels extends AppCompatActivity {
+    public static final String TAG = "LOG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,21 +22,22 @@ public class GameLevels extends AppCompatActivity {
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
+         //button back begin
         Button button_back = (Button) findViewById(R.id.button_back);
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
-            //Кнопка НАЗАД
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(GameLevels.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
-
+                    Log.i(TAG, "button_back exeption");
                 }
-                //КОНЕЦ
             }
         });
+        //end
 
         //easy level begin
         TextView textView1 = (TextView) findViewById(R.id.textView1);
@@ -46,11 +49,10 @@ public class GameLevels extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
-                    //пусто
+                    Log.i(TAG, "easy lvl TextView exeption");
                 }
             }
         });
-
         //end
 
         //medium level begin
@@ -63,7 +65,7 @@ public class GameLevels extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
-
+                     Log.i(TAG, "medium lvl TextView exeption");
                 }
             }
         });
@@ -79,28 +81,28 @@ public class GameLevels extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
-
+                     Log.i(TAG, "hard lvl TextView exeption");
                 }
             }
         });
-
         //end
 
 
     }
-    //System button Back begin
+    
+    //System Button Back begin
     @Override
     public void onBackPressed () {
         super.onBackPressed();
 
         try {
-            //  saveTask();
             Intent intent = new Intent(GameLevels.this, MainActivity.class);
             startActivity(intent);
         } catch (Exception e) {
-
+             Log.i(TAG, "onBackPressed exeption");
         }
     }
-//end
+     //end
+    
 }
 
