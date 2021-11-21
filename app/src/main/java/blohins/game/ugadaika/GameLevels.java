@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class GameLevels extends AppCompatActivity {
     public static final String TAG = "LOG";
+    String level = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +46,7 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(GameLevels.this, Level1.class);
-                    startActivity(intent);
-                    finish();
+                   level = "101";
                 } catch (Exception e) {
                     Log.i(TAG, "easy lvl TextView exeption");
                 }
@@ -61,9 +60,7 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(GameLevels.this, Level2.class);
-                    startActivity(intent);
-                    finish();
+                    level = "1001";
                 } catch (Exception e) {
                      Log.i(TAG, "medium lvl TextView exeption");
                 }
@@ -77,22 +74,30 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(GameLevels.this, Level3.class);
-                    startActivity(intent);
-                    finish();
+                     level = "100001";
                 } catch (Exception e) {
-                     Log.i(TAG, "hard lvl TextView exeption");
+                     Log.i(TAG, "hard lvl TextView exception");
                 }
             }
         });
         //end
 
+       startGame(level);
 
+    }
+    
+    public void startGame(String level){
+         Log.i(TAG, "startGAme started");
+           Intent intent = new Intent(GameLevels.this, StartGame.class);
+           intent.putExtra("level", level);
+                    startActivity(intent);
+                    finish();
     }
     
     //System Button Back begin
     @Override
     public void onBackPressed () {
+          Log.i(TAG, "system button back clicked");
         super.onBackPressed();
 
         try {
