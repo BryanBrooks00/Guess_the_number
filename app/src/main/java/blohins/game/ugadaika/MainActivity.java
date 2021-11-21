@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+          Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //buttonStart begin
         Button buttonStart = (Button)findViewById(R.id.buttonStart);
 buttonStart.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -29,13 +34,12 @@ buttonStart.setOnClickListener(new View.OnClickListener() {
             startActivity(intent);
             finish();
         } catch (Exception e) {
-
+            Log.i(TAG, "buttonStart exeption");
         }
     }
 });
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        //end
+      
     }
     //System button Back begin
     @Override
@@ -50,5 +54,5 @@ buttonStart.setOnClickListener(new View.OnClickListener() {
         }
         backPressedTime = System.currentTimeMillis();
     }
-    //System button Back END
+    //System button Back end
 };
